@@ -6,6 +6,7 @@
     <typeAliases>
         <package name="top.taiht.pojo.user"/>
         <package name="top.taiht.pojo.log"/>
+        <package name="top.taiht.pojo.article"/>
     </typeAliases>
     
     <!-- environments可以配置多个数据数据库连接环境 通过default属性切换不同的environments -->
@@ -26,5 +27,6 @@
 <!--        <mapper resource="com/itheima/mapper/userMapper.xml"/>-->
         <package name="top.taiht.mapper.user"/>
         <package name="top.taiht.mapper.log"/>
+        <package name="top.taiht.mapper.article"/>
     </mappers>
 </configuration>

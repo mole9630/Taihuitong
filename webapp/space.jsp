@@ -40,11 +40,11 @@
         </div>
         <div class="col-4">
             <h5>0</h5>
-            <span>活动总数</span>
+            <span>参加活动总数</span>
         </div>
         <div class="col-4">
             <h5>0</h5>
-            <span>我参加的</span>
+            <span>活动总积分</span>
         </div>
     </div>
 </div>
