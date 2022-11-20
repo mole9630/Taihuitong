@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="top">
-    <a href="user.html"><img src="img/mor.jpg"></a>
+    <a href="user.html"><img src="assets/img/user-logo.jpg"></a>
     <h5>点击头像登录</h5>
     <div class="row">
         <div class="col-4"><h5>0</h5>居住人数</div>
