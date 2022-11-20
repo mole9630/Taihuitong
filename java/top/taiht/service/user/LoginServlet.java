@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
             // 登陆成功
             resultStr = "登录成功 --> 欢迎您:" ;
 //            request.getSession().setAttribute("user", user);
+            request.setAttribute("user", user);
             request.getRequestDispatcher("space.jsp").forward(request, response);
         }
         else {

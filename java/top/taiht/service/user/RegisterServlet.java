@@ -59,11 +59,7 @@ public class RegisterServlet extends HttpServlet {
                 user.setuPassword(userPassword);
                 user.setuIdentificationNumber(userIdentificationNumber);
                 user.setuPhone(userPhone);
-                if (userSex.equals("男")) {
-                    user.setuSex(1);
-                } else {
-                    user.setuSex(0);
-                }
+                user.setuSex(Integer.valueOf(userSex));
                 user.setuEthnic(uEthnic);
                 user.setuVillage(uVillage);
 
@@ -75,11 +71,11 @@ public class RegisterServlet extends HttpServlet {
 
                 if (statusCode == 1) {
                     System.out.println("[info] " + userPhone + "用户注册成功!");
-                    resuleStr = "注册成功 --> 欢迎您:" + userName;
+                    request.setAttribute("user", user);
+                    request.getRequestDispatcher("space.jsp").forward(request, response);
                 } else {
                     resuleStr = "系统繁忙,请稍后重试.";
                 }
-
                 request.setAttribute("message", resuleStr);
                 request.getRequestDispatcher("test.jsp").forward(request, response);
             }

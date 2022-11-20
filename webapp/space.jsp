@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,19 +15,37 @@
         }
         ul>li{
             list-style: none;
-
         }
-
     </style>
 </head>
 <body>
 <div class="top">
-    <a href="user.html"><img src="assets/img/user-logo.jpg"></a>
+    <a href="user.jsp"><img src="assets/img/user-logo.jpg"></a>
+    <c:if test="${user!=null}">
+        <h5>${user.getuName()}</h5>
+    </c:if>
+    <c:if test="${user==null}">
     <h5>点击头像登录</h5>
+    </c:if>
+
     <div class="row">
-        <div class="col-4"><h5>0</h5>居住人数</div>
-        <div class="col-4"><h5>0</h5>工艺活动</div>
-        <div class="col-4"><h5>0</h5>活动积分</div>
+        <div class="col-4">
+            <c:if test="${user!=null}">
+                <h5>${user.getuVillage()}</h5>
+            </c:if>
+            <c:if test="${user==null}">
+                <h6>登录后查看</h6>
+            </c:if>
+            <span>所在村</span>
+        </div>
+        <div class="col-4">
+            <h5>0</h5>
+            <span>活动总数</span>
+        </div>
+        <div class="col-4">
+            <h5>0</h5>
+            <span>我参加的</span>
+        </div>
     </div>
 </div>
 
@@ -39,6 +58,10 @@
         <li><i class="fa-solid fa-lock-open"></i><a href="#">修改密码</a></li>
         <li><i class="fa-solid fa-right-from-bracket"></i><a href="#">安全退出</a></li>
     </ul>
+</div>
+
+<div class="bottom-nav">
+<%--    <jsp:include page="bottom_nav.jsp"></jsp:include>--%>
 </div>
 </body>
 </html>
