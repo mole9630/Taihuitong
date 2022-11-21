@@ -22,6 +22,14 @@
         }
         .h5{
             text-align: left;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            font-weight: bold;
+        }
+        .show_user_info {
+            font-weight: bold;
         }
         .div1{
             text-align: center;
@@ -52,7 +60,13 @@
             <a href="user.jsp"><img src="assets/img/user-logo.jpg"></a>
         </div>
         <div class="col-7">
-            <h5 class="h5">点击头像登录</h5>
+            <c:if test="${user!=null}">
+                <h5 class="h5">${user.getuName()}</h5>
+            </c:if>
+            <c:if test="${user==null}">
+                <h5 class="h5">点击头像登录</h5>
+            </c:if>
+
         </div>
     </div>
 
@@ -64,27 +78,25 @@
             <c:if test="${user==null}">
                 <h6>登录后查看</h6>
             </c:if>
-            <span>所在村</span>
+            <span class="show_user_info">所在村</span>
         </div>
         <div class="col-4 div1">
             <c:if test="${user!=null}">
                 <h5>${spaceInfo.getuEventCount()}</h5>
-                <%--<h5>0</h5>--%>
             </c:if>
             <c:if test="${user==null}">
                 <h6>登录后查看</h6>
             </c:if>
-            <span>参加活动总数</span>
+            <span class="show_user_info">参加活动总数</span>
         </div>
         <div class="col-4 div1">
             <c:if test="${user!=null}">
                 <h5>${spaceInfo.getuPoint()}</h5>
-                <%--<h5>0</h5>--%>
             </c:if>
             <c:if test="${user==null}">
                 <h6>登录后查看</h6>
             </c:if>
-            <span>活动总积分</span>
+            <span class="show_user_info">活动总积分</span>
         </div>
     </div>
     <!--  活动  -->

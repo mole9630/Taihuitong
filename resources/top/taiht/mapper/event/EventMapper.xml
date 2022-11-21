@@ -7,7 +7,7 @@
 -->
 <mapper namespace="top.taiht.mapper.event.EventMapper">
 
-<resultMap id="userResultMap" type="Event">
+<resultMap id="EventResultMap" type="Event">
     <result column="e_id" property="eID"/>
     <result column="e_name" property="eName"/>
     <result column="e_people_number" property="ePeopleNumber"/>
@@ -18,7 +18,6 @@
     <result column="e_point" property="ePoint"/>
     <result column="e_status" property="eStatus"/>
 </resultMap>
-
 
     <!--添加活动-->
     <insert id="insertEvent" useGeneratedKeys="true" keyProperty="eID">
