@@ -7,6 +7,7 @@
         <package name="top.taiht.pojo.user"/>
         <package name="top.taiht.pojo.log"/>
         <package name="top.taiht.pojo.article"/>
+        <package name="top.taiht.pojo.event"/>
     </typeAliases>
     
     <!-- environments可以配置多个数据数据库连接环境 通过default属性切换不同的environments -->
@@ -28,5 +29,6 @@
         <package name="top.taiht.mapper.user"/>
         <package name="top.taiht.mapper.log"/>
         <package name="top.taiht.mapper.article"/>
+        <package name="top.taiht.mapper.event"/>
     </mappers>
 </configuration>

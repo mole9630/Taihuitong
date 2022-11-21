@@ -56,9 +56,16 @@
         <li><i class="fa-solid fa-hand-holding-heart"></i><a href="#">公益活动</a></li>
         <li><a href="#">便民服务</a></li>
         <li><i class="fa-solid fa-lock-open"></i><a href="#">修改密码</a></li>
+
+        <%-- 管理员功能开始 --%>
         <c:if test="${user.getuStatus() == 2}">
-            <i class="fa-solid fa-newspaper"></i><a href="admin/article.jsp">[管理员]新闻发布</a></li>
+            <li><i class="fa-solid fa-newspaper"></i><a href="admin/article.jsp">[管理员]新闻发布</a></li>
         </c:if>
+        <c:if test="${user.getuStatus() == 2}">
+            <li><i class="fa-solid fa-flag"></i><a href="admin/event.jsp">[管理员]活动发布</a></li>
+        </c:if>
+        <%-- 管理员功能结束 --%>
+
         <li><i class="fa-solid fa-right-from-bracket"></i><a href="#">安全退出</a></li>
     </ul>
 </div>
