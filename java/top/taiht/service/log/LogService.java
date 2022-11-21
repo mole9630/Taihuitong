@@ -6,7 +6,7 @@ import top.taiht.mapper.log.LogMapper;
 import top.taiht.pojo.log.Log;
 import top.taiht.pojo.user.User;
 import top.taiht.util.db.SqlSessionFactoryUtils;
-import top.taiht.util.log.getTimestampUtils;
+import top.taiht.util.time.getTimestampUtils;
 
 public class LogService {
     private SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();

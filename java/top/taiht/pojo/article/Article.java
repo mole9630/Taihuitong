@@ -7,16 +7,20 @@ public class Article {
     private String aAuthor;
     private String aTime;
     private String aContent;
+    private String aCover;
+    private Integer aType;
 
     public Article() {
     }
 
-    public Article(Integer aID, String aTitle, String aAuthor, String aTime, String aContent) {
+    public Article(Integer aID, String aTitle, String aAuthor, String aTime, String aContent, String aCover, Integer aType) {
         this.aID = aID;
         this.aTitle = aTitle;
         this.aAuthor = aAuthor;
         this.aTime = aTime;
         this.aContent = aContent;
+        this.aCover = aCover;
+        this.aType = aType;
     }
 
     public Integer getaID() {
@@ -48,5 +52,17 @@ public class Article {
     }
     public void setaContent(String aContent) {
         this.aContent = aContent;
+    }
+    public String getaCover() {
+        return aCover;
+    }
+    public void setaCover(String aCover) {
+        this.aCover = aCover;
+    }
+    public Integer getaType() {
+        return aType;
+    }
+    public void setaType(Integer aType) {
+        this.aType = aType;
     }
 }

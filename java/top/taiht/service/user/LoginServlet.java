@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             // 释放资源
             resultStr = userPhone + "用户不存在或者密码错误,请检查后重试.";
             request.setAttribute("message", resultStr);
-            request.getRequestDispatcher("test.jsp").forward(request, response);
+            request.getRequestDispatcher("info.jsp").forward(request, response);
         }
     }
 }

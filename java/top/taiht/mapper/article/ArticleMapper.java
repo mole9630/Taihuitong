@@ -4,5 +4,5 @@ import top.taiht.pojo.article.Article;
 
 
 public interface ArticleMapper {
-    public void insertArticle(Article article);
+    public int insertNews(Article article);
 }

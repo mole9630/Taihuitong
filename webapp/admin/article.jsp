@@ -16,17 +16,20 @@
 <form action="/AddArticle" method="post">
   <h5>文章发布</h5>
   <div class="form-group">
-    <span>文章标题：</span><input type="text" name="a_title">
+    <span>文章标题:</span><input type="text" name="a_title">
   </div>
   <div class="form-group">
-    <span>文章作者：</span><input type="text" name="a_author">
+    <span>文章作者:</span><input type="text" name="a_author">
   </div>
   <div class="form-group">
-    <span>文章内容：</span><input type="text" name="a_content">
+    <span>文章内容:</span><textarea name="a_content" cols="20" rows="10"></textarea>
+  </div>
+  <div class="form-group">
+    <span>文章封面:</span><input type="text" name="a_cover">
   </div>
   <div class="form-group">
     <button class="btn btn-primary btn-lg btn-block" type="submit">发布</button>
-    <button class="btn btn-primary btn-lg btn-block" type="reset">取消</button>
+    <button class="btn btn-primary btn-lg btn-block" type="reset">重置</button>
   </div>
 </form>
 </body>

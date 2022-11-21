@@ -38,11 +38,11 @@ public class RegisterServlet extends HttpServlet {
         if (userName == null || userName.equals("") || userRePassword == null || userRePassword.equals("") || userIdentificationNumber == null || userIdentificationNumber.equals("") || userPhone == null || userPhone.equals("") || userSex == null || userSex.equals("") || uEthnic == null || uEthnic.equals("") || uVillage == null || uVillage.equals("")) {
             resuleStr = "请填写完整信息,请检查后重试.";
             request.setAttribute("message", resuleStr);
-            request.getRequestDispatcher("test.jsp").forward(request, response);
+            request.getRequestDispatcher("info.jsp").forward(request, response);
         } else if (!userPassword.equals(userRePassword)) {
             resuleStr = "两次密码不一致,请检查后重试.";
             request.setAttribute("message", resuleStr);
-            request.getRequestDispatcher("test.jsp").forward(request, response);
+            request.getRequestDispatcher("info.jsp").forward(request, response);
         } else {
             // 判断手机号是否存在
             User userJudgment = userService.selectUserByPhone(userPhone);
@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
                 System.out.println("[info] " + userPhone + "用户注册失败,可能是用户已存在.");
                 resuleStr = userPhone + "用户已存在.";
                 request.setAttribute("message", resuleStr);
-                request.getRequestDispatcher("test.jsp").forward(request, response);
+                request.getRequestDispatcher("info.jsp").forward(request, response);
             } else {
                 // 设置user对象值
                 User user = new User();
@@ -77,7 +77,7 @@ public class RegisterServlet extends HttpServlet {
                     resuleStr = "系统繁忙,请稍后重试.";
                 }
                 request.setAttribute("message", resuleStr);
-                request.getRequestDispatcher("test.jsp").forward(request, response);
+                request.getRequestDispatcher("info.jsp").forward(request, response);
             }
         }
     }

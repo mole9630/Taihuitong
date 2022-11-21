@@ -1,4 +1,4 @@
-package top.taiht.util.log;
+package top.taiht.util.time;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

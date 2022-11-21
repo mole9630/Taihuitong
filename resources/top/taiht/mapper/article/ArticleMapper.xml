@@ -13,11 +13,13 @@
     <result column="a_author" property="aAuthor"/>
     <result column="a_time" property="aTime"/>
     <result column="a_content" property="aContent"/>
+    <result column="a_cover" property="aCover"/>
+    <result column="a_type" property="aType"/>
 </resultMap>
 
     <!--添加新闻-->
-    <insert id="insertArticle" useGeneratedKeys="true" keyProperty="aID">
-        INSERT INTO article(a_title, a_author, a_time, a_content)
-        VALUES(#{aTitle}, #{aAuthor}, #{aTime}, #{aContent})
+    <insert id="insertNews" useGeneratedKeys="true" keyProperty="aID">
+        INSERT INTO article(a_title, a_author, a_time, a_content, a_cover, a_type)
+        VALUES(#{aTitle}, #{aAuthor}, #{aTime}, #{aContent}, #{aCover}, 0)
     </insert>
 </mapper>
