@@ -26,15 +26,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <c:forEach items="${event}" var="event">
+    <c:forEach items="${event}" var="event">
+        <tr>
             <td>${event.geteName()}</td>
             <td>${event.getePoint()}</td>
             <td>${event.geteStartTime()}</td>
             <td>${event.geteEndTime()}</td>
             <td><i class="fa-solid fa-pen-to-square"></i><a href="#">报名</a></td>
-        </c:forEach>
-    </tr>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 </body>
