@@ -1,5 +1,6 @@
 package top.taiht.service.user;
 
+import top.taiht.pojo.user.SpaceInfo;
 import top.taiht.pojo.user.User;
 import top.taiht.service.log.LogService;
 
@@ -31,6 +32,8 @@ public class LoginServlet extends HttpServlet {
 
         // 调用UserService完成登录校验工作
         User user = userService.selectLogin(userPhone, userPassword);
+        // 创建spaceInfo对象
+        SpaceInfo spaceInfo = new SpaceInfo();
 
         if (user != null) {
             // 写入登陆日志
@@ -44,9 +47,19 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("info.jsp").forward(request, response);
             } else {
                 // 用户状态为1,表示用户已被启用
-//                resultStr = "登录成功 --> 欢迎您:" ;
+                // 写入用户信息到SpaceInfo对象用于个人主页显示
+                spaceInfo.setuID(user.getuId());
+                spaceInfo.setuName(user.getuName());
+                spaceInfo.setuPhone(user.getuPhone());
+                spaceInfo.setuVillage(user.getuVillage());
+                spaceInfo.setuPoint(userService.selectEventPointByUserId(user.getuId()));
+                spaceInfo.setuStatus(user.getuStatus());
+                spaceInfo.setuEventCount(userService.selectEventCountByUserId(user.getuId()));
+
+                System.out.println("[info] " + userPhone + ":登录成功！");
 //            request.getSession().setAttribute("user", user);
                 request.setAttribute("user", user);
+                request.setAttribute("spaceInfo", spaceInfo);
                 request.getRequestDispatcher("space.jsp").forward(request, response);
             }
         }

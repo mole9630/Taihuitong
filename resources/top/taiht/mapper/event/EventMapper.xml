@@ -19,7 +19,8 @@
     <result column="e_status" property="eStatus"/>
 </resultMap>
 
-    <!--添加新闻-->
+
+    <!--添加活动-->
     <insert id="insertEvent" useGeneratedKeys="true" keyProperty="eID">
         INSERT INTO event(e_name, e_people_number, e_address, e_start_time, e_end_time, e_introduction, e_point, e_status)
         VALUES(#{eName}, #{ePeopleNumber}, #{eAddress}, #{eStartTime}, #{eEndTime},#{eIntroduction}, #{ePoint}, 0)

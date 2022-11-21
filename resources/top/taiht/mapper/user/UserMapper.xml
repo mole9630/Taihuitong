@@ -7,17 +7,26 @@
 -->
 <mapper namespace="top.taiht.mapper.user.UserMapper">
 
-<resultMap id="userResultMap" type="User">
-    <result column="u_id" property="uId"/>
-    <result column="u_name" property="uName"/>
-    <result column="u_password" property="uPassword"/>
-    <result column="u_identification_number" property="uIdentificationNumber"/>
-    <result column="u_sex" property="uSex"/>
-    <result column="u_phone" property="uPhone"/>
-    <result column="u_ethnic" property="uEthnic"/>
-    <result column="u_village" property="uVillage"/>
-    <result column="u_status" property="uStatus"/>
-</resultMap>
+    <resultMap id="userResultMap" type="User">
+        <result column="u_id" property="uId"/>
+        <result column="u_name" property="uName"/>
+        <result column="u_password" property="uPassword"/>
+        <result column="u_identification_number" property="uIdentificationNumber"/>
+        <result column="u_sex" property="uSex"/>
+        <result column="u_phone" property="uPhone"/>
+        <result column="u_ethnic" property="uEthnic"/>
+        <result column="u_village" property="uVillage"/>
+        <result column="u_status" property="uStatus"/>
+    </resultMap>
+
+    <resultMap id="EventStaffResultMap" type="EventStaff">
+        <result column="es_id" property="esID"/>
+        <result column="es_u_id" property="esUID"/>
+        <result column="es_e_id" property="esEID"/>
+        <result column="es_time" property="esTime"/>
+        <result column="es_status" property="esStatus"/>
+    </resultMap>
+
     <!--登录功能(通过手机号及密码查询)-->
     <select id="selectLogin" resultMap="userResultMap">
         select * from user where u_phone = #{userPhone} and u_password = #{userPassword}
@@ -26,6 +35,13 @@
     <!--根据手机号查询用户-->
     <select id="selectUserByPhone" resultMap="userResultMap">
         select * from user where u_phone = #{userPhone}
+    </select>
+
+    <!--查询用户积分-->
+    <select id="selectEventPointByUserId" resultType="int">
+        SELECT SUM(e_point)
+        FROM user u, event e, event_staff es
+        WHERE u.u_id = es.es_u_id AND e.e_id = es.es_e_id AND u.u_id = #{uID}
     </select>
 
     <!--注册功能-->

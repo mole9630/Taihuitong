@@ -2,6 +2,7 @@ package top.taiht.service.user;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import top.taiht.mapper.event.EventMapper;
 import top.taiht.mapper.user.UserMapper;
 import top.taiht.pojo.user.User;
 import top.taiht.util.db.SqlSessionFactoryUtils;
@@ -42,6 +43,11 @@ public class UserService {
         return userMapper.selectUserByPhone(userPhone);
     }
 
+    /**
+     * 用户注册功能
+     * @param user 用户信息
+     * @return 返回受影响的行数
+     */
     public int insertRegister(User user) {
         int statusCode = -1;
         // 获取SqlSession对象
@@ -55,4 +61,28 @@ public class UserService {
         return statusCode;
     }
 
+    /**
+     * 根据用户ID查询用户参加活动总数
+     * @param uID 用户ID
+     * @return 返回参加活动总数
+     */
+    public Integer selectEventCountByUserId(Integer uID) {
+        Integer num = -1;
+        // 获取SqlSession对象
+        SqlSession sqlSession = factory.openSession();
+        // 获取Mapper对象接口的代理对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        // 执行方法
+
+        return userMapper.selectEventCountByUserId(uID);
+    }
+
+    public int selectEventPointByUserId(Integer uID) {
+        // 获取SqlSession对象
+        SqlSession sqlSession = factory.openSession();
+        // 获取Mapper对象接口的代理对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        // 执行方法
+        return userMapper.selectEventPointByUserId(uID);
+    }
 }
