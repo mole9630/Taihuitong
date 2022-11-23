@@ -1,5 +1,6 @@
 package top.taiht.mapper.event;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import top.taiht.pojo.event.Event;
@@ -28,4 +29,7 @@ public interface EventMapper {
 
     // 报名活动(添加活动报名信息)
     int insertEventStaff(EventStaff eventStaff);
+
+    // 修改活动审核状态
+    int updateEventStaffStatus(@Param("esID") Integer esID, @Param("esStatus") Integer esStatus);
 }

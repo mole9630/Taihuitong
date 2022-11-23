@@ -42,7 +42,17 @@
             <span class="badge badge-danger">未通过</span>
           </c:if>
         </td>
-        <td><i class="fa-solid fa-check"></i><a href="#">通过</a>&nbsp;&nbsp;<i class="fa-solid fa-xmark"></i><a href="#">拒绝</a></td>
+        <td>
+          <c:if test="${eventStaffs.getEsStatus() == 0}">
+            <i class="fa-solid fa-check"></i><a href="/admin/modifyEventStatus?esid=${eventStaffs.getEsUID()}&status=1">通过</a>&nbsp;&nbsp;<i class="fa-solid fa-xmark"></i><a href="/admin/modifyEventStatus?esid=${eventStaffs.getEsUID()}&status=2">拒绝</a>
+          </c:if>
+          <c:if test="${eventStaffs.getEsStatus() == 1}">
+            <i class="fa-solid fa-xmark"></i><a href="/admin/modifyEventStatus?esid=${eventStaffs.getEsUID()}&status=2">拒绝</a>
+          </c:if>
+          <c:if test="${eventStaffs.getEsStatus() == 2}">
+            <i class="fa-solid fa-check"></i><a href="/admin/modifyEventStatus?esid=${eventStaffs.getEsUID()}&status=1">通过</a>
+          </c:if>
+        </td>
       </tr>
     </c:forEach>
 

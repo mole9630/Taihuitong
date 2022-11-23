@@ -106,4 +106,25 @@ public class EventService {
 
         return statusCode;
     }
+
+    /**
+     * 活动报名审核
+     * @param esID 活动报名id
+     * @param esStatus 活动报名状态
+     * @return 返回受影响的行数
+     */
+    public int updateEventStaffStatus(Integer esID, Integer esStatus) {
+        int statusCode = -1;
+        // 获取SqlSession对象
+        SqlSession sqlSession = factory.openSession();
+        // 获取Mapper对象接口的代理对象
+        EventMapper eventMapper = sqlSession.getMapper(EventMapper.class);
+        //执行方法
+        statusCode = eventMapper.updateEventStaffStatus(esID, esStatus);
+        sqlSession.commit();
+        // 释放资源
+        sqlSession.close();
+
+        return statusCode;
+    }
 }

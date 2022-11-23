@@ -39,4 +39,7 @@
         insert into event_staff(es_u_id, es_u_name, es_e_id, es_e_name, es_time, es_status)
         values(#{esUID}, #{esUName}, #{esEID}, #{esEName}, #{esTime}, 0)
     </insert>
+    <update id="updateEventStaffStatus">
+        update event_staff set es_status = #{esStatus} where es_id = #{esID}
+    </update>
 </mapper>

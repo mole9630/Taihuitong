@@ -1,9 +1,6 @@
 package top.taiht.service.event;
 
-import top.taiht.pojo.event.Event;
 import top.taiht.pojo.event.EventStaff;
-import top.taiht.pojo.user.User;
-import top.taiht.service.user.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
