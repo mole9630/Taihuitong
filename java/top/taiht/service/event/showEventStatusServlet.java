@@ -1,6 +1,9 @@
 package top.taiht.service.event;
 
 import top.taiht.pojo.event.Event;
+import top.taiht.pojo.event.EventStaff;
+import top.taiht.pojo.user.User;
+import top.taiht.service.user.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -8,14 +11,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "showEventServlet", value = "/EventRegistration")
-public class showEventServlet extends HttpServlet {
+@WebServlet(name = "showEventStatusServlet", value = "/admin/EventStatus")
+public class showEventStatusServlet extends HttpServlet {
     private EventService eventService = new EventService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Event> event = eventService.selectEvent();
-        request.setAttribute("event", event);
-        request.getRequestDispatcher("user/event_registration.jsp").forward(request, response);
+        List<EventStaff> eventStaffs = eventService.selectEventStaffByStatus();
+        request.setAttribute("eventStaffs", eventStaffs);
+        request.getRequestDispatcher("event_audit.jsp").forward(request, response);
     }
 
     @Override

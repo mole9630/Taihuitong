@@ -62,6 +62,24 @@ public class UserService {
     }
 
     /**
+     * 根据用户id查询用户信息
+     * @param userId 用户id
+     * @return 返回用户信息
+     */
+    public User selectUserById(Integer userId) {
+        // 获取SqlSession对象
+        SqlSession sqlSession = factory.openSession();
+        // 获取Mapper对象接口的代理对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        // 执行方法
+        User user = userMapper.selectUserById(userId);
+        // 释放资源
+        sqlSession.close();
+
+        return user;
+    }
+
+    /**
      * 根据用户ID查询用户参加活动总数
      * @param uID 用户ID
      * @return 返回参加活动总数

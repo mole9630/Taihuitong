@@ -119,7 +119,7 @@
         <ul>
             <li><i class="fa-solid fa-user-group"></i><a href="#">家庭信息</a><span class="list_gt">&gt;</span></li><hr>
             <li><i class="fa-solid fa-book-open-reader"></i><a href="#">党员学习</a><span class="list_gt">&gt;</span></li><hr>
-            <li><i class="fa-solid fa-hand-holding-heart"></i><a href="#">公益活动</a><span class="list_gt">&gt;</span></li><hr>
+            <li><i class="fa-solid fa-hand-holding-heart"></i><a href="/EventRegistration">公益活动</a><span class="list_gt">&gt;</span></li><hr>
             <li><i class="fa-solid fa-face-smile"></i><a href="#">便民服务</a><span class="list_gt">&gt;</span></li><hr>
             <li><i class="fa-solid fa-lock-open"></i><a href="#">修改密码</a><span class="list_gt">&gt;</span></li><hr>
             <li><i class="fa-solid fa-right-from-bracket"></i><a href="#">安全退出</a><span class="list_gt">&gt;</span></li><hr>

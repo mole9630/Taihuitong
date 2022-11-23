@@ -11,7 +11,7 @@
  Target Server Version : 50650 (5.6.50-log)
  File Encoding         : 65001
 
- Date: 21/11/2022 13:33:52
+ Date: 23/11/2022 09:24:50
 */
 
 SET NAMES utf8mb4;
@@ -51,11 +51,32 @@ CREATE TABLE `event`  (
   `e_point` int(11) NOT NULL COMMENT '活动积分',
   `e_status` int(11) NOT NULL COMMENT '活动状态(0:失效,1:正常)',
   PRIMARY KEY (`e_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of event
 -- ----------------------------
+INSERT INTO `event` VALUES (1, '测试活动', 10, '无', '2022-11-21 15:29:00', '2022-12-21 16:29:00', '无', 2, 1);
+
+-- ----------------------------
+-- Table structure for event_staff
+-- ----------------------------
+DROP TABLE IF EXISTS `event_staff`;
+CREATE TABLE `event_staff`  (
+  `es_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '列编号',
+  `es_u_id` int(11) NOT NULL COMMENT '用户编号',
+  `es_u_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户姓名',
+  `es_e_id` int(11) NOT NULL COMMENT '活动编号',
+  `es_e_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '活动名',
+  `es_time` datetime NOT NULL COMMENT '报名时间',
+  `es_status` int(11) NOT NULL COMMENT '审核状态(0:审核中,1:已通过,2:未通过)',
+  PRIMARY KEY (`es_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of event_staff
+-- ----------------------------
+INSERT INTO `event_staff` VALUES (1, 1, '摩尔', 1, '测试活动', '2022-11-21 15:29:00', 1);
 
 -- ----------------------------
 -- Table structure for log
@@ -69,7 +90,7 @@ CREATE TABLE `log`  (
   `l_type` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '日志类型',
   `l_remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '日志备注',
   PRIMARY KEY (`l_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of log
@@ -84,6 +105,60 @@ INSERT INTO `log` VALUES (8, 1, '2022-11-20 19:45:50', '2022-11-20 19:45:50', 'u
 INSERT INTO `log` VALUES (9, 1, '2022-11-20 19:46:15', '2022-11-20 19:46:15', 'user.login', NULL);
 INSERT INTO `log` VALUES (10, 1, '2022-11-20 19:48:36', '2022-11-20 19:48:36', 'user.login', NULL);
 INSERT INTO `log` VALUES (11, 1, '2022-11-20 19:48:41', '2022-11-20 19:48:41', 'user.login', NULL);
+INSERT INTO `log` VALUES (12, 1, '2022-11-21 15:03:29', '2022-11-21 15:03:29', 'user.login', NULL);
+INSERT INTO `log` VALUES (13, 1, '2022-11-21 15:04:47', '2022-11-21 15:04:47', 'user.login', NULL);
+INSERT INTO `log` VALUES (14, 1, '2022-11-21 15:06:42', '2022-11-21 15:06:42', 'user.login', NULL);
+INSERT INTO `log` VALUES (15, 1, '2022-11-21 15:32:35', '2022-11-21 15:32:35', 'user.login', NULL);
+INSERT INTO `log` VALUES (16, 1, '2022-11-21 17:02:38', '2022-11-21 17:02:38', 'user.login', NULL);
+INSERT INTO `log` VALUES (17, 1, '2022-11-21 17:07:31', '2022-11-21 17:07:31', 'user.login', NULL);
+INSERT INTO `log` VALUES (18, 1, '2022-11-21 17:11:54', '2022-11-21 17:11:54', 'user.login', NULL);
+INSERT INTO `log` VALUES (19, 1, '2022-11-21 17:12:28', '2022-11-21 17:12:28', 'user.login', NULL);
+INSERT INTO `log` VALUES (20, 1, '2022-11-21 19:57:16', '2022-11-21 19:57:16', 'user.login', NULL);
+INSERT INTO `log` VALUES (21, 1, '2022-11-21 19:57:26', '2022-11-21 19:57:26', 'user.login', NULL);
+INSERT INTO `log` VALUES (22, 1, '2022-11-21 19:57:31', '2022-11-21 19:57:31', 'user.login', NULL);
+INSERT INTO `log` VALUES (23, 1, '2022-11-21 19:59:02', '2022-11-21 19:59:02', 'user.login', NULL);
+INSERT INTO `log` VALUES (24, 1, '2022-11-21 19:59:04', '2022-11-21 19:59:04', 'user.login', NULL);
+INSERT INTO `log` VALUES (25, 1, '2022-11-21 20:05:12', '2022-11-21 20:05:12', 'user.login', NULL);
+INSERT INTO `log` VALUES (26, 1, '2022-11-21 20:05:21', '2022-11-21 20:05:21', 'user.login', NULL);
+INSERT INTO `log` VALUES (27, 1, '2022-11-21 20:08:06', '2022-11-21 20:08:06', 'user.login', NULL);
+INSERT INTO `log` VALUES (28, 1, '2022-11-21 20:08:08', '2022-11-21 20:08:08', 'user.login', NULL);
+INSERT INTO `log` VALUES (29, 1, '2022-11-21 20:10:17', '2022-11-21 20:10:17', 'user.login', NULL);
+INSERT INTO `log` VALUES (30, 1, '2022-11-21 20:11:26', '2022-11-21 20:11:26', 'user.login', NULL);
+INSERT INTO `log` VALUES (31, 1, '2022-11-21 20:12:12', '2022-11-21 20:12:12', 'user.login', NULL);
+INSERT INTO `log` VALUES (32, 1, '2022-11-21 20:12:13', '2022-11-21 20:12:13', 'user.login', NULL);
+INSERT INTO `log` VALUES (33, 1, '2022-11-21 20:12:13', '2022-11-21 20:12:13', 'user.login', NULL);
+INSERT INTO `log` VALUES (34, 1, '2022-11-21 20:12:24', '2022-11-21 20:12:24', 'user.login', NULL);
+INSERT INTO `log` VALUES (35, 1, '2022-11-21 20:12:28', '2022-11-21 20:12:28', 'user.login', NULL);
+INSERT INTO `log` VALUES (36, 1, '2022-11-21 20:14:02', '2022-11-21 20:14:02', 'user.login', NULL);
+INSERT INTO `log` VALUES (37, 1, '2022-11-21 20:14:03', '2022-11-21 20:14:03', 'user.login', NULL);
+INSERT INTO `log` VALUES (38, 1, '2022-11-21 20:14:04', '2022-11-21 20:14:04', 'user.login', NULL);
+INSERT INTO `log` VALUES (39, 1, '2022-11-21 20:14:07', '2022-11-21 20:14:07', 'user.login', NULL);
+INSERT INTO `log` VALUES (40, 1, '2022-11-21 20:14:07', '2022-11-21 20:14:07', 'user.login', NULL);
+INSERT INTO `log` VALUES (41, 1, '2022-11-21 20:15:19', '2022-11-21 20:15:19', 'user.login', NULL);
+INSERT INTO `log` VALUES (42, 1, '2022-11-21 20:15:19', '2022-11-21 20:15:19', 'user.login', NULL);
+INSERT INTO `log` VALUES (43, 1, '2022-11-21 20:15:20', '2022-11-21 20:15:20', 'user.login', NULL);
+INSERT INTO `log` VALUES (44, 1, '2022-11-21 20:15:20', '2022-11-21 20:15:20', 'user.login', NULL);
+INSERT INTO `log` VALUES (45, 1, '2022-11-21 20:15:21', '2022-11-21 20:15:21', 'user.login', NULL);
+INSERT INTO `log` VALUES (46, 1, '2022-11-21 20:15:56', '2022-11-21 20:15:56', 'user.login', NULL);
+INSERT INTO `log` VALUES (47, 1, '2022-11-21 20:15:57', '2022-11-21 20:15:57', 'user.login', NULL);
+INSERT INTO `log` VALUES (48, 1, '2022-11-21 20:15:57', '2022-11-21 20:15:57', 'user.login', NULL);
+INSERT INTO `log` VALUES (49, 1, '2022-11-21 20:15:57', '2022-11-21 20:15:57', 'user.login', NULL);
+INSERT INTO `log` VALUES (50, 1, '2022-11-21 20:15:57', '2022-11-21 20:15:57', 'user.login', NULL);
+INSERT INTO `log` VALUES (51, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (52, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (53, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (54, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (55, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (56, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (57, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (58, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (59, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (60, 1, '2022-11-21 20:16:18', '2022-11-21 20:16:18', 'user.login', NULL);
+INSERT INTO `log` VALUES (61, 1, '2022-11-21 20:16:55', '2022-11-21 20:16:55', 'user.login', NULL);
+INSERT INTO `log` VALUES (62, 1, '2022-11-21 20:16:56', '2022-11-21 20:16:56', 'user.login', NULL);
+INSERT INTO `log` VALUES (63, 1, '2022-11-21 21:22:14', '2022-11-21 21:22:14', 'user.login', NULL);
+INSERT INTO `log` VALUES (64, 1, '2022-11-23 09:01:50', '2022-11-23 09:01:50', 'user.login', NULL);
+INSERT INTO `log` VALUES (65, 1, '2022-11-23 09:03:29', '2022-11-23 09:03:29', 'user.login', NULL);
 
 -- ----------------------------
 -- Table structure for report

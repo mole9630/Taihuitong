@@ -7,21 +7,36 @@
 -->
 <mapper namespace="top.taiht.mapper.event.EventMapper">
 
-<resultMap id="EventResultMap" type="Event">
-    <result column="e_id" property="eID"/>
-    <result column="e_name" property="eName"/>
-    <result column="e_people_number" property="ePeopleNumber"/>
-    <result column="e_address" property="eAddress"/>
-    <result column="e_start_time" property="eStartTime"/>
-    <result column="e_end_time" property="eEndTime"/>
-    <result column="e_introduction" property="eIntroduction"/>
-    <result column="e_point" property="ePoint"/>
-    <result column="e_status" property="eStatus"/>
-</resultMap>
+    <resultMap id="EventResultMap" type="Event">
+        <result column="e_id" property="eID"/>
+        <result column="e_name" property="eName"/>
+        <result column="e_people_number" property="ePeopleNumber"/>
+        <result column="e_address" property="eAddress"/>
+        <result column="e_start_time" property="eStartTime"/>
+        <result column="e_end_time" property="eEndTime"/>
+        <result column="e_introduction" property="eIntroduction"/>
+        <result column="e_point" property="ePoint"/>
+        <result column="e_status" property="eStatus"/>
+    </resultMap>
+
+    <resultMap id="EventStaffResultMap" type="EventStaff">
+        <result column="es_id" property="esID"/>
+        <result column="es_u_id" property="esUID"/>
+        <result column="es_u_name" property="esUName"/>
+        <result column="es_e_id" property="esEID"/>
+        <result column="es_e_name" property="esEName"/>
+        <result column="es_time" property="esTime"/>
+        <result column="es_status" property="esStatus"/>
+    </resultMap>
 
     <!--添加活动-->
     <insert id="insertEvent" useGeneratedKeys="true" keyProperty="eID">
         INSERT INTO event(e_name, e_people_number, e_address, e_start_time, e_end_time, e_introduction, e_point, e_status)
         VALUES(#{eName}, #{ePeopleNumber}, #{eAddress}, #{eStartTime}, #{eEndTime},#{eIntroduction}, #{ePoint}, 0)
+    </insert>
+
+    <insert id="insertEventStaff" useGeneratedKeys="true" keyProperty="esID">
+        insert into event_staff(es_u_id, es_u_name, es_e_id, es_e_name, es_time, es_status)
+        values(#{esUID}, #{esUName}, #{esEID}, #{esEName}, #{esTime}, 0)
     </insert>
 </mapper>
