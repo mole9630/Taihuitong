@@ -32,7 +32,7 @@
             <td>${event.getePoint()}</td>
             <td>${event.geteStartTime()}</td>
             <td>${event.geteEndTime()}</td>
-            <td><i class="fa-solid fa-pen-to-square"></i><a href="#">报名</a></td>
+            <td><i class="fa-solid fa-pen-to-square"></i><a href="/user/entryEvent?eid=${event.geteID()}&uid=${sessionScope.user.getuId()}&uname=${sessionScope.user.getuName()}&ename=${event.geteName()}">报名</a></td>
         </tr>
     </c:forEach>
     </tbody>

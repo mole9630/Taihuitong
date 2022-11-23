@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
@@ -57,8 +58,12 @@ public class LoginServlet extends HttpServlet {
                 spaceInfo.setuEventCount(userService.selectEventCountByUserId(user.getuId()));
 
                 System.out.println("[info] " + userPhone + ":登录成功！");
-//            request.getSession().setAttribute("user", user);
                 request.setAttribute("user", user);
+
+                // 登录成功信息储存在session中
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+
                 request.setAttribute("spaceInfo", spaceInfo);
                 request.getRequestDispatcher("space.jsp").forward(request, response);
             }

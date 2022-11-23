@@ -28,11 +28,11 @@ public class EnrollmentProcessingServlet extends HttpServlet {
             System.out.println("[info] 活动报名成功!");
             resuleStr = "活动报名成功!";
             request.setAttribute("message", resuleStr);
-            request.getRequestDispatcher("info.jsp").forward(request, response);
+            request.getRequestDispatcher("../info.jsp").forward(request, response);
         } else {
             resuleStr = "系统繁忙,请稍后重试.";
             request.setAttribute("message", resuleStr);
-            request.getRequestDispatcher("info.jsp").forward(request, response);
+            request.getRequestDispatcher("../info.jsp").forward(request, response);
         }
 
     }
